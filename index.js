@@ -28,4 +28,6 @@ inquirer.prompt([
         },
     }
 ])
-.then(answers)
+.then((answers)=>{
+console.log(answers)
+})
