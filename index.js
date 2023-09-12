@@ -5,15 +5,27 @@ const fs = require('fs')
 inquirer.prompt([
     {
     type: 'list',
-    name: 'shapeChoice',
+    name: 'ChooseShape',
     message: 'choose shape',
     choices: ['triangle', 'circle', 'square']
     },
     {
         type: 'list',
-        name: 'shapeChoice',
-        message: 'choose shape',
-        choices: ['triangle', 'circle', 'square']
+        name: 'ChooseColor',
+        message: 'choose color',
+        choices: ['pink', 'blue', 'green']
+    },
+    {
+        type: 'input',
+        name: 'lettersForLogo',
+        message: 'input 1-3 letters',
+        validate: (input)=>{
+            if(input.length >= 1 && input.length <=3){
+                return true; 
+            } else{
+                return 'up to 3 letters only, please!'
+            }
+        },
     }
 ])
 .then(answers)
