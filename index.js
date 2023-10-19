@@ -33,6 +33,11 @@ inquirer
   .then((answers) => {
     const { lettersForLogo, ChooseColor, ChooseShape } = answers;
     let svg = '';
+    const side = 100;
+    const height = 100;
+    const base = 100;
+    const radius = 40;
+    
 
     if (ChooseShape === 'triangle') {
       svg = triangle(lettersForLogo, ChooseColor);
