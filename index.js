@@ -28,6 +28,23 @@ inquirer.prompt([
         },
     }
 ])
+
+inquirer.prompt([questions).then((answers)=>{
+    const {ChooseShape, ChooseColor, lettersForLogo} = answers;
+    const shape = ChooseShape;
+    let svg = '';
+
+    shape === 'triangle' ? svg = `<svg width="100" height="100">` : svg = `<svg width="100" height="100">`;
+
+    fs.writeFile('logo.svg', svg, (err)=>{
+        if(err) throw err;
+        console.log('file created')
+    })
+}
+
+inquirer.prompt(questions).then((answers)=>{
+    const {ChooseShape, ChooseColor, lettersForLogo} = answers;
+
 .then((answers)=>{
 console.log(answers)
 })
