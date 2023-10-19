@@ -29,22 +29,24 @@ inquirer.prompt([
     }
 ])
 
-inquirer.prompt([questions).then((answers)=>{
-    const {ChooseShape, ChooseColor, lettersForLogo} = answers;
+inquirer.prompt(questions).then((answers) => {
+    const { lettersForLogo, ChooseColor, ChooseShape } = answers;
     const shape = ChooseShape;
     let svg = '';
-
-    shape === 'triangle' ? svg = `<svg width="100" height="100">` : svg = `<svg width="100" height="100">`;
-
-    fs.writeFile('logo.svg', svg, (err)=>{
-        if(err) throw err;
-        console.log('file created')
+    
+    shape.setColor(ChooseColor);
+    
+    if (shape === 'triangle') {
+        svg = triangle(lettersForLogo);
+    } else if (shape === 'circle') {
+        svg = circle(lettersForLogo);
+    } else if (shape === 'square') {
+        svg = square(lettersForLogo);
+    }   
+    fs.writeFile('logo.svg', svg, (err) => {
+        if (err) throw err;
+        console.log('The file has been saved!');
     })
-}
 
-inquirer.prompt(questions).then((answers)=>{
-    const {ChooseShape, ChooseColor, lettersForLogo} = answers;
-
-.then((answers)=>{
-console.log(answers)
-})
+});
+    
