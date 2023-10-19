@@ -50,10 +50,3 @@ inquirer.prompt(questions).then((answers) => {
     })
 
 });
-
-
-module.exports = {
-    triangle,
-    circle,
-    square
-}
